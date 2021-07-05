@@ -157,19 +157,19 @@ There are many ways otherwise available for developers to raise error and resolv
 
 It is also recommended to log errors and their  names and other Meta properties of errors so that it can be easily identifiable.
 
-```
+```javascript
  // throwing an Error from typical function, whether sync or async
  if(!productToAdd)
        throw new Error('How can I add new product when no value provided?');
 
  // 'throwing' an Error from EventEmitter
  const myEmitter = new MyEmitter();
- myEmitter emit('error', new Error('whoops!'));
+ myEmitter.emit('error', new Error('whoops!'));
 
  // 'throwing' an Error from a Promise
  const addProduct = async (productToAdd) => {
       try {
-             const existingProduct = await DAL.getProduct (productToAdd.id);
+             const existingProduct = await DAL.getProduct(productToAdd.id);
              if (existingProduct !== null) {
                    throw new Error('Product already exists!');
             }
@@ -205,7 +205,7 @@ As a standard best practice, we should use all constants, functions, variables, 
 
 Code example
 
-```Javascript
+```javascript
 // for class name we use Uppercase
 class MyClassExample {}
 
@@ -288,8 +288,8 @@ We can use linter plugins like eslint-plugin-security to identify security plugi
 
 These rules relate to possible syntax or logic errors in JavaScript code:
 
-| Error                          | Explanation                                                                |
-| ------------------------------ |:---------------------------------------------------------------------------|
+| Rules                          | Explanation                                                                |
+| :----------------------------- |:---------------------------------------------------------------------------|
 | for-direction                  | enforce `for` loop update clause moving the counter in the right direction.|
 | getter-return                  | enforce `return` statements in getters                                     |
 | no-async-promise-executor      | disallow using an async function as a Promise executor                     |
